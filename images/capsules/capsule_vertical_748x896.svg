@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 748 896" width="748" height="896">
+  <defs>
+    <filter id="cs" x="-18%" y="-14%" width="136%" height="128%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur"/>
+      <feOffset dx="4" dy="9" result="off"/>
+      <feFlood flood-color="#000" flood-opacity="0.62" result="col"/>
+      <feComposite in="col" in2="off" operator="in" result="shad"/>
+      <feMerge><feMergeNode in="shad"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ts" x="-12%" y="-22%" width="124%" height="144%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur"/>
+      <feOffset dx="0" dy="7" result="off"/>
+      <feFlood flood-color="#000" flood-opacity="0.82" result="col"/>
+      <feComposite in="col" in2="off" operator="in" result="shad"/>
+      <feMerge><feMergeNode in="shad"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="bg" cx="50%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#1c3252"/>
+      <stop offset="65%" stop-color="#0d1b2a"/>
+      <stop offset="100%" stop-color="#060c14"/>
+    </radialGradient>
+    <radialGradient id="feltgrad" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#0a2e1a"/>
+      <stop offset="100%" stop-color="#051208"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe580"/>
+      <stop offset="40%" stop-color="#f5a623"/>
+      <stop offset="100%" stop-color="#a05a05"/>
+    </linearGradient>
+    <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#f5a623" stop-opacity="0"/>
+      <stop offset="18%"  stop-color="#f5a623"/>
+      <stop offset="82%"  stop-color="#f5a623"/>
+      <stop offset="100%" stop-color="#f5a623" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="feltfade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a2e1a" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0a2e1a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="748" height="896" fill="url(#bg)"/>
+
+  <!-- Green felt bottom -->
+  <rect x="0" y="630" width="748" height="266" fill="url(#feltgrad)"/>
+  <rect x="0" y="570" width="748" height="120" fill="url(#feltfade)"/>
+
+  <!-- Background suit symbols -->
+  <text x="124"  y="240" font-family="Georgia,serif" font-size="220" fill="#0d2035" opacity="0.70" text-anchor="middle">♠</text>
+  <text x="624"  y="240" font-family="Georgia,serif" font-size="220" fill="#160d0d" opacity="0.60" text-anchor="middle">♥</text>
+  <text x="124"  y="520" font-family="Georgia,serif" font-size="200" fill="#160d0d" opacity="0.45" text-anchor="middle">♦</text>
+  <text x="624"  y="520" font-family="Georgia,serif" font-size="200" fill="#0d2035" opacity="0.45" text-anchor="middle">♣</text>
+
+  <!-- Decorative diamond -->
+  <polygon points="374,55 526,210 374,365 222,210" fill="none" stroke="#f5a623" stroke-width="2" opacity="0.22"/>
+  <polygon points="374,80 502,210 374,340 246,210" fill="none" stroke="#f5a623" stroke-width="1" opacity="0.12"/>
+
+  <!-- Card fan — 5 cards (card: 120×170) -->
+  <g transform="translate(174,285) rotate(-28)" filter="url(#cs)">
+    <rect x="-60" y="-85" width="120" height="170" rx="10" fill="#ede0c8"/>
+    <rect x="-53" y="-77" width="106" height="154" rx="8"  fill="white"/>
+    <text x="-38" y="-50" font-family="Georgia,serif" font-size="26" fill="#c0392b" font-weight="bold">7</text>
+    <text x="-33" y="-24" font-family="Georgia,serif" font-size="22" fill="#c0392b">♥</text>
+    <text x="0"   y="56"  font-family="Georgia,serif" font-size="40" fill="#c0392b" text-anchor="middle">♥</text>
+  </g>
+  <g transform="translate(267,258) rotate(-14)" filter="url(#cs)">
+    <rect x="-60" y="-85" width="120" height="170" rx="10" fill="#ede0c8"/>
+    <rect x="-53" y="-77" width="106" height="154" rx="8"  fill="white"/>
+    <text x="-38" y="-50" font-family="Georgia,serif" font-size="26" fill="#1a1a2e" font-weight="bold">Q</text>
+    <text x="-33" y="-24" font-family="Georgia,serif" font-size="22" fill="#1a1a2e">♠</text>
+    <text x="0"   y="56"  font-family="Georgia,serif" font-size="40" fill="#1a1a2e" text-anchor="middle">♠</text>
+  </g>
+  <g transform="translate(374,250) rotate(0)" filter="url(#cs)">
+    <rect x="-60" y="-85" width="120" height="170" rx="10" fill="#ede0c8"/>
+    <rect x="-53" y="-77" width="106" height="154" rx="8"  fill="white"/>
+    <text x="-38" y="-50" font-family="Georgia,serif" font-size="26" fill="#c0392b" font-weight="bold">A</text>
+    <text x="-33" y="-24" font-family="Georgia,serif" font-size="22" fill="#c0392b">♦</text>
+    <text x="0"   y="56"  font-family="Georgia,serif" font-size="46" fill="#c0392b" text-anchor="middle">♦</text>
+  </g>
+  <g transform="translate(481,258) rotate(14)" filter="url(#cs)">
+    <rect x="-60" y="-85" width="120" height="170" rx="10" fill="#ede0c8"/>
+    <rect x="-53" y="-77" width="106" height="154" rx="8"  fill="white"/>
+    <text x="-38" y="-50" font-family="Georgia,serif" font-size="26" fill="#1a1a2e" font-weight="bold">J</text>
+    <text x="-33" y="-24" font-family="Georgia,serif" font-size="22" fill="#1a1a2e">♣</text>
+    <text x="0"   y="56"  font-family="Georgia,serif" font-size="38" fill="#1a1a2e" text-anchor="middle">♣</text>
+  </g>
+  <g transform="translate(574,285) rotate(28)" filter="url(#cs)">
+    <rect x="-60" y="-85" width="120" height="170" rx="10" fill="#ede0c8"/>
+    <rect x="-53" y="-77" width="106" height="154" rx="8"  fill="white"/>
+    <text x="-38" y="-50" font-family="Georgia,serif" font-size="26" fill="#c0392b" font-weight="bold">K</text>
+    <text x="-33" y="-24" font-family="Georgia,serif" font-size="22" fill="#c0392b">♥</text>
+    <text x="0"   y="56"  font-family="Georgia,serif" font-size="38" fill="#c0392b" text-anchor="middle">♥</text>
+  </g>
+
+  <!-- AUTOBUS -->
+  <text x="374" y="668" text-anchor="middle"
+    font-family="'Arial Black','Impact',sans-serif"
+    font-size="152" font-weight="900"
+    textLength="610" lengthAdjust="spacingAndGlyphs"
+    fill="none" stroke="white" stroke-width="14" stroke-linejoin="round"
+    filter="url(#ts)"
+  >AUTOBUS</text>
+  <text x="374" y="668" text-anchor="middle"
+    font-family="'Arial Black','Impact',sans-serif"
+    font-size="152" font-weight="900"
+    textLength="610" lengthAdjust="spacingAndGlyphs"
+    fill="url(#gold)"
+  >AUTOBUS</text>
+
+  <rect x="69" y="688" width="610" height="5" rx="2.5" fill="url(#lg)"/>
+
+  <text x="374" y="732" text-anchor="middle"
+    font-family="'Arial','Verdana',sans-serif"
+    font-size="26" font-weight="700" letter-spacing="11"
+    fill="#4fc3f7" opacity="0.9"
+  >THE CARD GAME</text>
+
+  <!-- Decorative suit row bottom -->
+  <text x="194" y="828" font-family="Georgia,serif" font-size="36" fill="#f5a623" opacity="0.35" text-anchor="middle">♠</text>
+  <text x="264" y="828" font-family="Georgia,serif" font-size="36" fill="#c0392b" opacity="0.35" text-anchor="middle">♥</text>
+  <text x="484" y="828" font-family="Georgia,serif" font-size="36" fill="#c0392b" opacity="0.35" text-anchor="middle">♦</text>
+  <text x="554" y="828" font-family="Georgia,serif" font-size="36" fill="#f5a623" opacity="0.35" text-anchor="middle">♣</text>
+  <line x1="294" y1="812" x2="454" y2="812" stroke="#4fc3f7" stroke-width="1" opacity="0.18"/>
+</svg>

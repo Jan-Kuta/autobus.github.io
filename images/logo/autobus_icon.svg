@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <filter id="cs" x="-20%" y="-15%" width="140%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur"/>
+      <feOffset dx="3" dy="6" result="off"/>
+      <feFlood flood-color="#000" flood-opacity="0.65" result="col"/>
+      <feComposite in="col" in2="off" operator="in" result="shad"/>
+      <feMerge><feMergeNode in="shad"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="bg" cx="50%" cy="44%" r="62%">
+      <stop offset="0%" stop-color="#1c3252"/>
+      <stop offset="100%" stop-color="#080e18"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#1a3a62" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#0d1b2a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe580"/>
+      <stop offset="45%" stop-color="#f5a623"/>
+      <stop offset="100%" stop-color="#a05a05"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded square background -->
+  <rect width="256" height="256" rx="44" fill="url(#bg)"/>
+  <rect width="256" height="256" rx="44" fill="url(#glow)"/>
+
+  <!-- Gold border -->
+  <rect x="7" y="7" width="242" height="242" rx="38"
+    fill="none" stroke="url(#gold)" stroke-width="3" opacity="0.65"/>
+
+  <!-- Back card (slightly behind, rotated more) -->
+  <g transform="translate(128,130) rotate(12)">
+    <rect x="-52" y="-74" width="104" height="148" rx="10" fill="#162436"/>
+    <rect x="-46" y="-67" width="92" height="134" rx="7"
+      fill="none" stroke="#2a4d72" stroke-width="2.5"/>
+    <rect x="-32" y="-53" width="64" height="106" rx="5"
+      fill="none" stroke="#1e3a58" stroke-width="1.5" opacity="0.5"/>
+  </g>
+
+  <!-- Front card — Ace of Diamonds, tilted -8° -->
+  <g transform="translate(122,126) rotate(-8)" filter="url(#cs)">
+    <rect x="-52" y="-74" width="104" height="148" rx="10" fill="#ede0c8"/>
+    <rect x="-46" y="-67" width="92" height="134" rx="8" fill="white"/>
+    <!-- Top-left corner -->
+    <text x="-36" y="-40" font-family="Georgia,serif" font-size="26"
+      fill="#c0392b" font-weight="bold">A</text>
+    <text x="-30" y="-16" font-family="Georgia,serif" font-size="20"
+      fill="#c0392b">♦</text>
+    <!-- Center diamond -->
+    <text x="0" y="46" font-family="Georgia,serif" font-size="68"
+      fill="#c0392b" text-anchor="middle">♦</text>
+    <!-- Bottom-right corner (rotated 180°) -->
+    <text x="36" y="62" font-family="Georgia,serif" font-size="26"
+      fill="#c0392b" font-weight="bold"
+      transform="rotate(180, 24, 55)">A</text>
+  </g>
+
+  <!-- Subtle gold dot ornaments in corners -->
+  <circle cx="22"  cy="22"  r="3" fill="#f5a623" opacity="0.35"/>
+  <circle cx="234" cy="22"  r="3" fill="#f5a623" opacity="0.35"/>
+  <circle cx="22"  cy="234" r="3" fill="#f5a623" opacity="0.35"/>
+  <circle cx="234" cy="234" r="3" fill="#f5a623" opacity="0.35"/>
+</svg>

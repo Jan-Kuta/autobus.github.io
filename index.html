@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autobus Press Kit</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    /* Palette sampled from the game's own table */
+    --ground:    #0E1220;
+    --felt:      #171D2E;
+    --felt-lit:  #283148;
+    --edge:      #2E3750;
+    --ink:       #DEE0E8;
+    --ink-dim:   #8E95AA;
+    --ink-faint: #626A80;
+    --gold:      #E0A83C;
+    --card-red:  #CC4A5E;
+    --tan:       #8F695B;
+
+    --measure: 64ch;
+    --pad: clamp(1.25rem, 4vw, 2.5rem);
+
+    --f-display: "Fraunces", Georgia, "Times New Roman", serif;
+    --f-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+    color-scheme: dark;
+  }
+
+  /* Committed single-theme design: this page is the game's table.
+     Every colour is painted explicitly so it holds on any host ground. */
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+  p { margin: 0; }
+  a { color: var(--gold); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px;
+  }
+
+  .wrap { max-width: 1080px; margin-inline: auto; padding-inline: var(--pad); }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    position: relative;
+    border-bottom: 1px solid var(--edge);
+    overflow: hidden;
+  }
+  .hero-art {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center 42%;
+    opacity: .42;
+  }
+  .hero-art::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom, var(--ground) 0%, rgba(14,18,32,.72) 14%, rgba(14,18,32,.5) 40%, var(--ground) 96%),
+      radial-gradient(130% 100% at 50% 34%, rgba(40,49,72,.12) 0%, var(--ground) 80%);
+  }
+  .hero-inner {
+    position: relative;
+    padding-block: clamp(3.5rem, 11vw, 7rem) clamp(2.5rem, 6vw, 4rem);
+    display: flex; flex-direction: column; gap: 1.5rem;
+  }
+  .eyebrow {
+    font-family: var(--f-mono); font-size: .72rem; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--gold);
+  }
+  .hero h1 {
+    font-size: clamp(2.9rem, 9vw, 5.4rem);
+    font-weight: 800;
+    font-variation-settings: "SOFT" 20, "WONK" 1;
+    letter-spacing: -.022em;
+    max-width: 14ch;
+  }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+  .lede {
+    font-size: clamp(1.06rem, 2.1vw, 1.28rem);
+    color: var(--ink-dim); max-width: 52ch;
+  }
+
+  /* Fact strip */
+  .strip {
+    display: grid; gap: 1px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    background: var(--edge);
+    border: 1px solid var(--edge);
+    margin-top: 1rem;
+  }
+  .strip div { background: var(--ground); padding: .95rem 1.1rem; }
+  .strip dt {
+    font-family: var(--f-mono); font-size: .68rem; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--ink-faint); margin-bottom: .3rem;
+  }
+  .strip dd {
+    margin: 0; font-size: 1.02rem; font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- Sections ---------- */
+
+  section { padding-block: clamp(3rem, 7vw, 4.75rem); border-bottom: 1px solid var(--edge); }
+  section:last-of-type { border-bottom: 0; }
+
+  .head { display: flex; align-items: baseline; gap: .85rem; margin-bottom: 1.75rem; }
+  .suit {
+    font-size: 1.5rem; line-height: 1; color: var(--ink-faint);
+    flex: none; translate: 0 -.05em;
+  }
+  .suit.red { color: var(--card-red); }
+  .head h2 { font-size: clamp(1.6rem, 3.6vw, 2.15rem); font-weight: 600; letter-spacing: -.01em; }
+
+  .prose { max-width: var(--measure); display: flex; flex-direction: column; gap: 1.1rem; }
+  .prose p { color: var(--ink); }
+  .prose .quiet { color: var(--ink-dim); }
+
+  /* ---------- Factsheet table ---------- */
+
+  .table-scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; min-width: 520px; }
+  th, td {
+    text-align: left; padding: .72rem 1rem;
+    border-bottom: 1px solid var(--edge); vertical-align: top;
+  }
+  th {
+    font-family: var(--f-mono); font-weight: 500; font-size: .74rem;
+    letter-spacing: .11em; text-transform: uppercase;
+    color: var(--ink-faint); width: 34%; white-space: nowrap;
+  }
+  td { font-variant-numeric: tabular-nums; }
+  tr:last-child th, tr:last-child td { border-bottom: 0; }
+  .tba {
+    font-family: var(--f-mono); font-size: .8rem;
+    color: var(--gold); border: 1px dashed rgba(224,168,60,.45);
+    padding: .1rem .45rem; border-radius: 2px;
+  }
+
+  /* ---------- Media grids ---------- */
+
+  .shots { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .shots figure { margin: 0; display: flex; flex-direction: column; gap: .55rem; }
+  .shots img {
+    display: block; width: 100%; height: auto;
+    border: 1px solid var(--edge); background: var(--felt);
+  }
+  figcaption {
+    font-family: var(--f-mono); font-size: .74rem; color: var(--ink-faint);
+    display: flex; justify-content: space-between; gap: 1rem;
+  }
+  .gifs { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+  /* ---------- Trailer & downloads ---------- */
+
+  .trailer { margin: 0; display: flex; flex-direction: column; gap: .55rem; }
+  .trailer video {
+    display: block; width: 100%; height: auto; aspect-ratio: 16 / 9;
+    border: 1px solid var(--edge); background: var(--felt);
+  }
+  .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: .5rem; }
+  .btn {
+    font-family: var(--f-mono); font-size: .78rem; letter-spacing: .08em;
+    text-transform: uppercase; text-decoration: none;
+    padding: .6rem 1rem; border-radius: 2px;
+    border: 1px solid rgba(224,168,60,.45); color: var(--gold);
+    transition: background .15s ease, color .15s ease;
+  }
+  .btn.primary, .btn:hover { background: var(--gold); color: var(--ground); border-color: var(--gold); }
+
+  .brand {
+    display: grid; gap: 1.25rem; align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .brand figure {
+    margin: 0; display: flex; flex-direction: column; gap: .75rem;
+    background: var(--felt); border: 1px solid var(--edge); padding: 1rem;
+  }
+  .brand img { display: block; width: 100%; height: auto; margin-block: auto; }
+
+  /* ---------- Copy blocks ---------- */
+
+  .copyblock { border: 1px solid var(--edge); background: var(--felt); margin-bottom: 1rem; }
+  .copyblock header {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: .6rem .9rem; border-bottom: 1px solid var(--edge);
+  }
+  .copyblock h3 {
+    font-family: var(--f-mono); font-weight: 500; font-size: .74rem;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--ink-dim);
+  }
+  .copyblock p {
+    padding: 1rem .9rem; font-family: var(--f-mono); font-size: .84rem;
+    line-height: 1.72; white-space: pre-wrap; color: var(--ink);
+  }
+  button.copy {
+    font-family: var(--f-mono); font-size: .72rem; letter-spacing: .08em;
+    text-transform: uppercase; cursor: pointer;
+    background: transparent; color: var(--gold);
+    border: 1px solid rgba(224,168,60,.4); border-radius: 2px;
+    padding: .28rem .6rem;
+    transition: background .15s ease, color .15s ease;
+  }
+  button.copy:hover { background: var(--gold); color: var(--ground); }
+  button.copy[data-done="1"] { background: var(--gold); color: var(--ground); border-color: var(--gold); }
+
+  /* ---------- Contact ---------- */
+
+  .contact { display: grid; gap: 1px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+             background: var(--edge); border: 1px solid var(--edge); }
+  .contact div { background: var(--felt); padding: 1.1rem 1.2rem; }
+  .contact dt {
+    font-family: var(--f-mono); font-size: .68rem; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--ink-faint); margin-bottom: .35rem;
+  }
+  .contact dd { margin: 0; word-break: break-word; }
+
+  footer {
+    padding-block: 2.5rem 3.5rem; color: var(--ink-faint);
+    font-family: var(--f-mono); font-size: .76rem;
+    border-top: 1px solid var(--edge);
+    display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; justify-content: space-between;
+  }
+
+  .note {
+    border-left: 2px solid var(--tan); padding: .1rem 0 .1rem 1rem;
+    color: var(--ink-dim); font-size: .93rem; max-width: var(--measure);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<header class="hero">
+  <div class="hero-art" style="background-image:url('images/screenshots/autobus_screenshot_04.png')"></div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Press kit · Steam Next Fest · October 2026</span>
+    <h1>Autobus<br><em>The Card Game</em></h1>
+    <p class="lede">A Czech folk card game that families have played for generations,
+      in its first digital version. Chain as long as the cards let you — your turn
+      ends the moment you have to put one down.</p>
+    <dl class="strip">
+      <div><dt>Release</dt><dd>11 November 2026</dd></div>
+      <div><dt>Price</dt><dd>$8.99</dd></div>
+      <div><dt>Platforms</dt><dd>Windows · Linux</dd></div>
+      <div><dt>Players</dt><dd>1–4</dd></div>
+      <div><dt>Languages</dt><dd>11</dd></div>
+    </dl>
+    <div class="actions">
+      <a class="btn primary" href="autobus-press-kit.zip" download>Download press kit (ZIP, 8.3 MB)</a>
+      <a class="btn" href="#trailer">Watch trailer</a>
+      <a class="btn" href="https://store.steampowered.com/app/4740470/Autobus__The_Card_Game/">Steam page</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="wrap" id="trailer">
+  <div class="head"><span class="suit red">&hearts;</span><h2>Trailer</h2></div>
+  <figure class="trailer">
+    <video controls preload="metadata" playsinline poster="trailer/autobus_trailer_poster.jpg">
+      <source src="trailer/autobus_trailer_720p.mp4" type="video/mp4">
+    </video>
+    <figcaption><span>Gameplay trailer · <a href="trailer/autobus_trailer_720p.mp4" download>download MP4</a></span><span>1280×720 · 40s</span></figcaption>
+  </figure>
+  <p class="note" style="margin-top:1.5rem">A real match played by the developer, cut down to 40 seconds.
+    Also on the <a href="https://store.steampowered.com/app/4740470/Autobus__The_Card_Game/">Steam store page</a>.</p>
+</section>
+
+<section class="wrap">
+  <div class="head"><span class="suit">&spades;</span><h2>The game</h2></div>
+  <div class="prose">
+    <p>Autobus is a card game I grew up playing with my family in the Czech Republic.
+      Everyone there knows it. Nobody had ever made a digital version, so I did.</p>
+    <p>One goal: empty your main pile before the others do. The four piles in the
+      middle build up from Ace to King and suits don't matter, so on your turn you
+      chain as many cards as you can — from your hand, from your four laying spots,
+      from the top of your main pile. None of that ends your turn.</p>
+    <p>What ends it is laying a card from your hand into one of those spots. And when
+      none of them will take it, the card goes under your main pile instead — the pile
+      you are trying to empty just got bigger. That is the whole game: how long you can
+      keep going before you have to put something down.</p>
+    <p>Play solo against bots, or online with two to four people. Three deck themes,
+      eleven languages, and a free demo.</p>
+    <p class="quiet">Built in Godot 4.6 by one person. Released 11 November 2026.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="head"><span class="suit red">&hearts;</span><h2>Fact sheet</h2></div>
+  <div class="table-scroll">
+    <table>
+      <tbody>
+        <tr><th>Title</th><td>Autobus: The Card Game</td></tr>
+        <tr><th>Developer</th><td>Jan Kuta — solo developer, Czech Republic</td></tr>
+        <tr><th>Publisher</th><td>Self-published</td></tr>
+        <tr><th>Release date</th><td>11 November 2026</td></tr>
+        <tr><th>Price</th><td>$8.99 USD</td></tr>
+        <tr><th>Platforms</th><td>Windows, Linux</td></tr>
+        <tr><th>Engine</th><td>Godot 4.6</td></tr>
+        <tr><th>Players</th><td>1–4 — solo vs bots, online multiplayer, local multiplayer</td></tr>
+        <tr><th>Languages</th><td>Czech, English, German, French, Spanish, Portuguese,
+          Simplified Chinese, Russian, Italian, Polish, Japanese</td></tr>
+        <tr><th>Deck themes</th><td>Three tables — Classic, Dark, Old — each with large-print or illustrated cards</td></tr>
+        <tr><th>Match options</th><td>Number of players, pile size, joker sets</td></tr>
+        <tr><th>Demo</th><td>Free on Steam — 1111 games, effectively unlimited</td></tr>
+        <tr><th>Steam</th><td><a href="https://store.steampowered.com/app/4740470/Autobus__The_Card_Game/">store.steampowered.com/app/4740470</a></td></tr>
+        <tr><th>Steam App ID</th><td>4740470 (demo 5024340)</td></tr>
+        <tr><th>Copyright</th><td>© 2026 Jan Kuta</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="head"><span class="suit red">&diams;</span><h2>Screenshots</h2></div>
+  <div class="shots">
+    <figure><img src="images/screenshots/autobus_screenshot_04.png" alt="Four-player game on the green Classic table with large-print cards.">
+      <figcaption><span>Classic table</span><span>1920×1080</span></figcaption></figure>
+    <figure><img src="images/screenshots/autobus_screenshot_05.png" alt="The same game on the Dark table, in navy.">
+      <figcaption><span>Dark table</span><span>1920×1080</span></figcaption></figure>
+    <figure><img src="images/screenshots/autobus_screenshot_06.png" alt="The Old table, in sepia and brown.">
+      <figcaption><span>Old table</span><span>1920×1080</span></figcaption></figure>
+    <figure><img src="images/screenshots/autobus_screenshot_08.png" alt="End of a match with the Player won message over the table.">
+      <figcaption><span>Winning a match</span><span>1920×1080</span></figcaption></figure>
+    <figure><img src="images/screenshots/autobus_screenshot_09.png" alt="In-game menu with the language list open, showing eleven languages in their own scripts.">
+      <figcaption><span>Eleven languages</span><span>1920×1080</span></figcaption></figure>
+    <figure><img src="images/screenshots/autobus_screenshot_07.png" alt="The same table with illustrated court cards instead of large-print ones.">
+      <figcaption><span>Illustrated cards</span><span>1920×1080</span></figcaption></figure>
+    <figure><img src="images/screenshots/autobus_screenshot_01.png" alt="Main menu with the Autobus logo over a blue table with large suit watermarks.">
+      <figcaption><span>Main menu</span><span>1920×1080</span></figcaption></figure>
+    <figure><img src="images/screenshots/autobus_screenshot_02.png" alt="Mode select offering Solo vs AI, Steam Multiplayer and Local Multiplayer.">
+      <figcaption><span>Game modes</span><span>1920×1080</span></figcaption></figure>
+    <figure><img src="images/screenshots/autobus_screenshot_03.png" alt="Match setup screen with controls for number of players, pile size and joker sets.">
+      <figcaption><span>Match setup</span><span>1920×1080</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="head"><span class="suit">&clubs;</span><h2>Animated</h2></div>
+  <div class="shots gifs">
+    <figure><img src="images/gifs/autobus_play_classictv.gif" alt="Animation: a turn playing out on the Classic table, cards landing on the shared piles.">
+      <figcaption><span>A turn, Classic</span><span>GIF · 4.6s</span></figcaption></figure>
+    <figure><img src="images/gifs/autobus_play_darktv.gif" alt="Animation: the same play on the Dark table.">
+      <figcaption><span>A turn, Dark</span><span>GIF · 4.6s</span></figcaption></figure>
+    <figure><img src="images/gifs/autobus_play_oldtv.gif" alt="Animation: the same play on the Old table.">
+      <figcaption><span>A turn, Old</span><span>GIF · 4.6s</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="head"><span class="suit">&spades;</span><h2>Copy &amp; paste</h2></div>
+  <p class="note" style="margin-bottom:1.5rem">Descriptions cleared for use as-is, in English and Czech.</p>
+
+  <div class="copyblock">
+    <header><h3>Short — English</h3><button class="copy" type="button">Copy</button></header>
+    <p>Autobus is a Czech folk card game, played in families for generations, now in its first digital version. Chain as many cards as you can onto the four shared piles — your turn ends only when you lay one from your hand into your own storage. 2–4 players online, bots for solo play, 11 languages.</p>
+  </div>
+
+  <div class="copyblock">
+    <header><h3>Short — Czech</h3><button class="copy" type="button">Copy</button></header>
+    <p>Autobus je česká lidová karetní hra, kterou se v rodinách hraje po generace — a která doteď neměla digitální podobu. Na středové balíčky řetěz, co ti karty dovolí; tah ti skončí až odložením karty z ruky na vlastní odkládací místo. 2–4 hráči online, boti pro sólo hru, 11 jazyků.</p>
+  </div>
+
+  <div class="copyblock">
+    <header><h3>Long — English</h3><button class="copy" type="button">Copy</button></header>
+    <p>Autobus is a card game I grew up playing with my family in the Czech Republic. Everyone there knows it. Nobody had ever made a digital version, so I did.
+
+One goal: empty your main pile before the others do. The four piles in the middle build up from Ace to King and suits don't matter, so on your turn you chain as many cards as you can — from your hand, from your four laying spots, from the top of your main pile. None of that ends your turn.
+
+What ends it is laying a card from your hand into one of those spots. And when none of them will take it, the card goes under your main pile instead — the pile you are trying to empty just got bigger. That is the whole game: how long you can keep going before you have to put something down.
+
+Play solo against bots, or online with two to four people. Three deck themes, eleven languages, and a free demo.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="head"><span class="suit red">&diams;</span><h2>Logo &amp; store art</h2></div>
+  <div class="brand">
+    <figure><img src="images/logo/autobus_logo.svg" alt="Autobus logo">
+      <figcaption><span>Logo</span><span>SVG</span></figcaption></figure>
+    <figure><img src="images/capsules/capsule_header_920x430.png" alt="Steam header capsule">
+      <figcaption><span>Header capsule</span><span>920×430</span></figcaption></figure>
+    <figure><img src="images/capsules/capsule_small_462x174.png" alt="Steam small capsule">
+      <figcaption><span>Small capsule</span><span>462×174</span></figcaption></figure>
+    <figure><img src="images/capsules/capsule_vertical_748x896.png" alt="Steam vertical capsule">
+      <figcaption><span>Vertical capsule</span><span>748×896</span></figcaption></figure>
+  </div>
+  <p class="note" style="margin-top:1.5rem">Also included in the <a href="autobus-press-kit.zip" download>download</a>: main capsule (1232×706),
+    library hero (3840×1240), app icons from 16×16 to 256×256, and the trailer.</p>
+</section>
+
+<section class="wrap">
+  <div class="head"><span class="suit red">&hearts;</span><h2>Contact</h2></div>
+  <dl class="contact">
+    <div><dt>Developer</dt><dd>Jan Kuta</dd></div>
+    <div><dt>Email</dt><dd><a href="mailto:jan.kuta@email.cz">jan.kuta@email.cz</a></dd></div>
+    <div><dt>Steam</dt><dd><a href="https://store.steampowered.com/app/4740470/Autobus__The_Card_Game/">Store page &amp; wishlist</a></dd></div>
+  </dl>
+  <p class="note" style="margin-top:1.5rem">Interviews, review keys and Czech-language
+    material available on request. The demo is free and public — no key needed.</p>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <span>Autobus: The Card Game — press kit</span>
+  <span>© 2026 Jan Kuta</span>
+</footer>
+
+<script>
+  document.querySelectorAll(".copyblock").forEach(function (block) {
+    var btn = block.querySelector("button.copy");
+    var text = block.querySelector("p").textContent;
+    btn.addEventListener("click", function () {
+      navigator.clipboard.writeText(text).then(function () {
+        btn.textContent = "Copied";
+        btn.dataset.done = "1";
+        setTimeout(function () {
+          btn.textContent = "Copy";
+          delete btn.dataset.done;
+        }, 1600);
+      }).catch(function () {
+        btn.textContent = "Select manually";
+        setTimeout(function () { btn.textContent = "Copy"; }, 2200);
+      });
+    });
+  });
+</script>
